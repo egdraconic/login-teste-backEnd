@@ -13,16 +13,21 @@ public class Usuario {
 
     @NonNull
     @Column(unique = true)
-    private String nome;
+    private String Nome;
 
     @NonNull
     @Column(unique = true)
     private String senha;
 
-    public Usuario(Long id, @NonNull String nome, @NonNull String senha) {
+    @NonNull
+    @Column(unique = true)
+    private String Email;
+
+    public Usuario(Long id, @NonNull String Nome, @NonNull String senha, @NonNull String Email) {
         this.id = id;
-        this.nome = nome;
+        this.Nome = Nome;
         this.senha = senha;
+        this.Email = Email;
     }
 
     public Usuario() {}
@@ -36,11 +41,11 @@ public class Usuario {
     }
 
     public @NonNull String getNome() {
-        return nome;
+        return Nome;
     }
 
-    public void setNome(@NonNull String nome) {
-        this.nome = nome;
+    public void setNome(@NonNull String Nome) {
+        this.Nome = Nome;
     }
 
     public @NonNull String getSenha() {
@@ -51,6 +56,13 @@ public class Usuario {
         this.senha = senha;
     }
 
+    public @NonNull String getEmail() {
+        return Email;
+    }
+
+    public void setEmail(@NonNull String Email) {
+        this.Email = Email;
+    }
 
     @Override
     public boolean equals(Object o) {
