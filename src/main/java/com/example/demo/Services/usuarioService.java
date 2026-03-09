@@ -31,6 +31,13 @@ public class usuarioService {
     public Usuario findByNomeAndEmail(String Nome, String Email) {
         return repository.findByNomeAndEmail(Nome, Email);
     }
+    public Usuario findByNome(String Nome) {
+        return repository.findByNome(Nome);
+    }
+
+    public Usuario findByEmail(String email) {
+        return repository.findByemail(email);
+    }
 
     public void DeleteById(Long id) {
         repository.deleteById(id);

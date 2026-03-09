@@ -33,6 +33,11 @@ public class usuarioResources {
         return ResponseEntity.ok().body(usuarioService.findByNomeAndEmail(nome, email));
     }
 
+    @GetMapping("/vef/email/{email}")
+    public ResponseEntity<Usuario> findByEmail(@PathVariable String email) {
+        return ResponseEntity.ok().body(usuarioService.findByEmail(email));
+    }
+
     @DeleteMapping
     public ResponseEntity<Void> DeleteById(@PathVariable Long id) {
         usuarioService.DeleteById(id);
@@ -40,7 +45,7 @@ public class usuarioResources {
     }
 
     @PostMapping
-    public ResponseEntity<Usuario> Insert(@PathVariable Usuario usuario) {
+    public ResponseEntity<Usuario> Insert(@RequestBody Usuario usuario) {
         usuario = usuarioService.insert(usuario);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(usuario.getId()).toUri();
         return ResponseEntity.created(uri).body(usuario);
